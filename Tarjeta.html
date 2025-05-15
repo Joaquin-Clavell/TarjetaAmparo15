@@ -2,99 +2,146 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Invitación Sorpresa 15</title>
+  <title>Invitación 15 Amparo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet" />
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body, html {
-      margin: 0;
-      padding: 0;
       font-family: 'Montserrat', sans-serif;
-      color: #444;
       background-color: #fdf6f9;
+      overflow-x: hidden;
     }
+
+    /* SOBRE INICIAL */
+    .sobre {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #f9dcdc, #f7e7f5);
+      display: flex; justify-content: center; align-items: center;
+      perspective: 1000px; cursor: pointer; z-index: 999;
+    }
+    .sello {
+      width: 150px; height: 150px;
+      background: radial-gradient(circle, #fff 60%, #f6c9d0);
+      border: 4px dashed #cc6699; border-radius: 50%;
+      display: flex; justify-content: center; align-items: center;
+      font-family: 'Great Vibes', cursive; font-size: 32px; color: #cc6699;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      animation: pulse 2s infinite; transition: transform 0.3s ease;
+      user-select: none; will-change: transform;
+    }
+    .sello:hover { transform: scale(1.05); }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(204,102,153,0.5); }
+      70% { box-shadow: 0 0 0 20px rgba(204,102,153,0); }
+      100% { box-shadow: 0 0 0 0 rgba(204,102,153,0); }
+    }
+    @keyframes abrirSobre {
+      0% { transform: rotateY(0deg); opacity:1; }
+      100% { transform: rotateY(-90deg); opacity:0; }
+    }
+
+    /* INVITACIÓN */
     .background {
-      background-image: url('https://images.unsplash.com/photo-1495562569060-2eec283d3391');
-      background-size: cover;
-      background-position: center;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px;
+      background-image: url('/Imagen\ de\ WhatsApp\ 2025-05-14\ a\ las\ 22.14.19_577dea3a.jpg');
+      background-size: cover; background-position: center;
+      min-height: 100vh; display: none;
+      justify-content: center; align-items: center;
+      padding: 40px 20px; flex-direction: column;
     }
     .overlay {
-      background-color: rgba(255, 255, 255, 0.85);
-      padding: 40px;
-      border-radius: 20px;
-      max-width: 600px;
-      text-align: center;
+      background-color: rgba(255,255,255,0.88);
+      padding: 40px; border-radius: 20px;
+      max-width: 600px; text-align: center;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      animation: fadeIn 1.5s ease forwards;
+      margin-bottom: 30px;
+    }
+    @keyframes fadeIn {
+      from { opacity:0; transform:translateY(20px); }
+      to   { opacity:1; transform:translateY(0); }
     }
     h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 60px;
-      color: #cc6699;
-      margin-bottom: 10px;
+      font-size: 60px; color: #cc6699; margin-bottom:10px;
     }
     h2 {
-      font-size: 16px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #aa4466;
-      margin-bottom: 20px;
+      font-size:16px; text-transform:uppercase;
+      letter-spacing:1.5px; color:#aa4466;
+      margin-bottom:20px;
     }
     p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #444;
-    }
-    strong {
-      color: #d14d7a;
+      font-size:18px; line-height:1.6; color:#444; margin:8px 0;
     }
     .confirmacion {
-      margin-top: 30px;
-      font-style: italic;
-      color: #aa4466;
-      font-weight: 500;
+      margin-top:20px; font-style:italic;
+      color:#aa4466; font-weight:500;
     }
     .boton-wsp {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 24px;
-      background-color: #25D366;
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 30px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease;
+      display:inline-block; margin-top:20px;
+      padding:12px 24px; background-color:#25D366;
+      color:white; font-weight:bold; text-decoration:none;
+      border-radius:30px; box-shadow:0 4px 6px rgba(0,0,0,0.2);
+      transition:background-color 0.3s ease;
     }
-    .boton-wsp:hover {
-      background-color: #1ebc57;
-    }
+    .boton-wsp:hover { background-color:#1ebc57; }
+
+    /* MAPA */
     .mapa {
-      margin: 50px auto;
-      width: 100%;
-      max-width: 600px;
-      height: 450px;
-      border: 0;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      display: block;
+      width:100%; max-width:600px; height:450px;
+      border:0; border-radius:15px;
+      box-shadow:0 0 10px rgba(0,0,0,0.2);
     }
-    @media (max-width: 600px) {
-      .overlay {
-        padding: 30px 20px;
-      }
-      h1 {
-        font-size: 48px;
-      }
+
+    /* ISLA FLOTANTE */
+    .isla-musica {
+      position: fixed; bottom:20px; right:20px;
+      background-color:#f7d3e0; color:#aa4466;
+      border-radius:50px; box-shadow:0 4px 10px rgba(0,0,0,0.2);
+      display:flex; align-items:center;
+      transition: width 0.4s ease, padding 0.4s ease;
+      overflow:hidden; cursor:pointer; z-index:1000;
+      width:50px; height:50px; padding:0;
+    }
+    .isla-musica.expandida {
+      width:220px; padding:0 10px;
+    }
+    .icono-musica {
+      font-size:24px; padding:12px; flex-shrink:0;
+    }
+    .detalle-musica {
+      display:flex; align-items:center;
+      justify-content:space-between; flex-grow:1;
+      opacity:0; transition:opacity 0.3s ease;
+    }
+    .isla-musica.expandida .detalle-musica {
+      opacity:1; margin-left:8px;
+    }
+    .titulo-cancion {
+      font-size:14px; color:#aa4466;
+      font-weight:500; white-space:nowrap;
+    }
+    #btnPlayPause {
+      background:none; border:none;
+      font-size:18px; color:#aa4466; cursor:pointer;
+    }
+
+    @media (max-width:600px){
+      h1 { font-size:48px; }
+      .overlay { padding:30px 20px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="background">
+  <!-- SOBRE INICIAL -->
+  <div class="sobre" id="pantallaSobre">
+    <div class="sello" id="btnAbrir">Abrir</div>
+  </div>
+
+  <!-- INVITACIÓN -->
+  <div class="background" id="invitacion">
     <div class="overlay">
       <h1>Shhh!!</h1>
       <h2>¿Sabés guardar un secreto?<br>TOP SECRET</h2>
@@ -103,18 +150,66 @@
       <p>Vamos a celebrar que <strong>Amparo cumple 15 años</strong> 💖</p>
       <p><strong>📍 Salón Quillén Suyán</strong><br>📅 Domingo 10 de Agosto - 01:00 hs</p>
       <p class="confirmacion">Mandame un mensaje al privado (Natalia) para confirmar tu asistencia 💌</p>
-
-      <!-- BOTÓN WHATSAPP -->
       <a href="https://wa.me/5492604353755?text=Hola%20Natalia%2C%20confirmo%20mi%20asistencia%20a%20los%2015%20de%20Amparo%20%F0%9F%92%9C"
-         target="_blank" class="boton-wsp">Confirmar asistencia</a>
+         target="_blank" class="boton-wsp">Confirmar asistencia por WhatsApp</a>
+    </div>
+    <iframe class="mapa"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.077894183412!2d-69.5971307!3d-35.502352099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967a7f027f8412c9%3A0x7b38eccbf188c971!2sSALON%20DE%20FIESTAS%20%2CQUILLEN!5e0!3m2!1ses!2sar!4v1747273370093!5m2!1ses!2sar"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <!-- AUDIO -->
+  <audio id="musica" loop>
+    <source src="/wwd.mp3juice.blog - BAD BUNNY - BAILE INoLVIDABLE (Video Oficial) DeBÍ TiRAR MáS FOToS (320 KBps).mp3" type="audio/mpeg" />
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <!-- ISLA FLOTANTE -->
+  <div class="isla-musica" id="islaMusica">
+    <div class="icono-musica">🎵</div>
+    <div class="detalle-musica">
+      <span class="titulo-cancion">Baile Inolvidable</span>
+      <button id="btnPlayPause">⏸️</button>
     </div>
   </div>
 
-  <!-- MAPA -->
-  <iframe class="mapa"
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.077894183412!2d-69.5971307!3d-35.502352099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967a7f027f8412c9%3A0x7b38eccbf188c971!2sSALON%20DE%20FIESTAS%20%2CQUILLEN!5e0!3m2!1ses!2sar!4v1747273370093!5m2!1ses!2sar"
-    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
+  <script>
+    const btnAbrir = document.getElementById('btnAbrir');
+    const pantallaSobre = document.getElementById('pantallaSobre');
+    const invitacion = document.getElementById('invitacion');
+    const musica = document.getElementById('musica');
+    const islaMusica = document.getElementById('islaMusica');
+    const btnPlayPause = document.getElementById('btnPlayPause');
+
+    btnAbrir.addEventListener('click', () => {
+      pantallaSobre.style.animation = 'abrirSobre 1s forwards';
+      pantallaSobre.addEventListener('animationend', () => {
+        pantallaSobre.style.display = 'none';
+        invitacion.style.display = 'flex';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        musica.play().catch(() => {});
+      }, { once: true });
+    });
+
+    // Isla flotante
+    islaMusica.addEventListener('mouseenter', () => {
+      islaMusica.classList.add('expandida');
+    });
+    islaMusica.addEventListener('mouseleave', () => {
+      islaMusica.classList.remove('expandida');
+    });
+    btnPlayPause.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (musica.paused) {
+        musica.play();
+        btnPlayPause.textContent = '⏸️';
+      } else {
+        musica.pause();
+        btnPlayPause.textContent = '▶️';
+      }
+    });
+  </script>
 
 </body>
 </html>
