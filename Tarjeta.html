@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Invitación Sorpresa 15</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet" />
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #444;
+      background-color: #fdf6f9;
+    }
+    .background {
+      background-image: url('https://images.unsplash.com/photo-1495562569060-2eec283d3391');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 60px;
+      color: #cc6699;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #aa4466;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #444;
+    }
+    strong {
+      color: #d14d7a;
+    }
+    .confirmacion {
+      margin-top: 30px;
+      font-style: italic;
+      color: #aa4466;
+      font-weight: 500;
+    }
+    .boton-wsp {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 24px;
+      background-color: #25D366;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+    .boton-wsp:hover {
+      background-color: #1ebc57;
+    }
+    .mapa {
+      margin: 50px auto;
+      width: 100%;
+      max-width: 600px;
+      height: 450px;
+      border: 0;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .overlay {
+        padding: 30px 20px;
+      }
+      h1 {
+        font-size: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background">
+    <div class="overlay">
+      <h1>Shhh!!</h1>
+      <h2>¿Sabés guardar un secreto?<br>TOP SECRET</h2>
+      <p>Ella no lo sabe.<br>Ella no se lo espera.</p>
+      <p><strong>¡Estás invitado a una fiesta SORPRESA!</strong></p>
+      <p>Vamos a celebrar que <strong>Amparo cumple 15 años</strong> 💖</p>
+      <p><strong>📍 Salón Quillén Suyán</strong><br>📅 Domingo 10 de Agosto - 01:00 hs</p>
+      <p class="confirmacion">Mandame un mensaje al privado (Natalia) para confirmar tu asistencia 💌</p>
+
+      <!-- BOTÓN WHATSAPP -->
+      <a href="https://wa.me/5492604353755?text=Hola%20Natalia%2C%20confirmo%20mi%20asistencia%20a%20los%2015%20de%20Amparo%20%F0%9F%92%9C"
+         target="_blank" class="boton-wsp">Confirmar asistencia</a>
+    </div>
+  </div>
+
+  <!-- MAPA -->
+  <iframe class="mapa"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.077894183412!2d-69.5971307!3d-35.502352099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967a7f027f8412c9%3A0x7b38eccbf188c971!2sSALON%20DE%20FIESTAS%20%2CQUILLEN!5e0!3m2!1ses!2sar!4v1747273370093!5m2!1ses!2sar"
+    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+
+</body>
+</html>
