@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -13,13 +13,35 @@
       overflow-x: hidden;
     }
 
+    /* ENCABEZADO FIJO */
+    .fixed-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px 20px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      color: #cc6699;
+      z-index: 10000;
+      box-shadow: 0 0 5px rgba(204,102,153,0.3);
+      user-select: none;
+      transition: box-shadow 0.3s ease;
+    }
+    .fixed-header.scrolled {
+      box-shadow: 0 2px 5px rgba(85, 84, 84, 0.15);
+    }
+
     /* SOBRE INICIAL */
     .sobre {
       position: fixed; top: 0; left: 0;
       width: 100%; height: 100%;
       background: linear-gradient(135deg, #f9dcdc, #f7e7f5);
       display: flex; justify-content: center; align-items: center;
-      perspective: 1000px; cursor: pointer; z-index: 999;
+      perspective: 1000px; cursor: pointer; z-index: 9999;
     }
     .sello {
       width: 150px; height: 150px;
@@ -44,14 +66,15 @@
 
     /* INVITACIÓN */
     .background {
-      background-image: url('/Img y mp3/AMPI.jpg');
+      background-image: url('/FONDO.jpg');
       background-size: cover; background-position: center;
       min-height: 100vh; display: none;
       justify-content: center; align-items: center;
-      padding: 40px 20px; flex-direction: column;
+      padding: 120px 20px 60px 20px; /* más padding top para no tapar por header */
+      flex-direction: column;
     }
     .overlay {
-      background-color: rgba(255,255,255,0.88);
+      background-color: rgba(232, 240, 238, 0.664);
       padding: 40px; border-radius: 20px;
       max-width: 600px; text-align: center;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
@@ -127,6 +150,57 @@
       font-size:18px; color:#aa4466; cursor:pointer;
     }
 
+    /* GALERÍA DE FOTOS */
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 60px;
+      max-width: 200%;
+      margin: 0 auto 100px auto;
+      padding: 0 10px;
+    }
+    .galeria img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+    /* Responsive para pantallas chicas */
+    @media (max-width: 900px) {
+      .galeria {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .galeria {
+        grid-template-columns: 1fr;
+      }
+    }
+    .titulo-galeria {
+      text-align: center;
+      margin: 1200px 0 20px 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #aa4466;
+    }
+    .titulo-galeria h2 {
+      font-family: 'Montserrat', cursive;
+      font-size: 36px;
+      margin-bottom: 6px;
+      color: #f3eef0;
+    }
+    .titulo-galeria p {
+      font-size: 18px;
+      font-style: italic;
+      color: #aa4466;
+      margin: 0;
+    }
+
     @media (max-width:600px){
       h1 { font-size:48px; }
       .overlay { padding:30px 20px; }
@@ -134,6 +208,11 @@
   </style>
 </head>
 <body>
+
+  <!-- ENCABEZADO FIJO -->
+  <header class="fixed-header" id="headerAmparo">
+    Amparo
+  </header>
 
   <!-- SOBRE INICIAL -->
   <div class="sobre" id="pantallaSobre">
@@ -149,64 +228,83 @@
       <p><strong>¡Estás invitado a una fiesta SORPRESA!</strong></p>
       <p>Vamos a celebrar que <strong>Amparo cumple 15 años</strong> 💖</p>
       <p><strong>📍 Salón Quillén Suyán</strong><br>📅 Domingo 10 de Agosto - 01:00 hs</p>
-      <p class="confirmacion">Mandame un mensaje al privado (Natalia) para confirmar tu asistencia 💌</p>
-      <a href="https://wa.me/5492604353755?text=Hola%20Natalia%2C%20confirmo%20mi%20asistencia%20a%20los%2015%20de%20Amparo%20%F0%9F%92%9C"
+      <p class="confirmacion">Mandame un mensaje al privado (Pilar) para confirmar tu asistencia 💌</p>
+      <a href="https://wa.me/5492604353755?text=Hola%20Pili%2C%20confirmo%20mi%20asistencia%20a%20los%2015%20de%20Amparo%20"
          target="_blank" class="boton-wsp">Confirmar asistencia</a>
     </div>
-    <iframe class="mapa"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.077894183412!2d-69.5971307!3d-35.502352099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967a7f027f8412c9%3A0x7b38eccbf188c971!2sSALON%20DE%20FIESTAS%20%2CQUILLEN!5e0!3m2!1ses!2sar!4v1747273370093!5m2!1ses!2sar"
-      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+
+    <div class="titulo-galeria">
+      <h2>Álbum de fotos</h2>
+      <p>Momentos únicos</p>
+    </div>
+
+    <!-- GALERÍA DE FOTOS -->
+    <div class="galeria">
+      <img src="https://via.placeholder.com/400x300?text=Foto+1" alt="Foto 1" />
+      <img src="https://via.placeholder.com/400x300?text=Foto+2" alt="Foto 2" />
+      <img src="https://via.placeholder.com/400x300?text=Foto+3" alt="Foto 3" />
+      <img src="https://via.placeholder.com/400x300?text=Foto+4" alt="Foto 4" />
+      <img src="https://via.placeholder.com/400x300?text=Foto+5" alt="Foto 5" />
+      <img src="https://via.placeholder.com/400x300?text=Foto+6" alt="Foto 6" />
+    </div>
+
+    <!-- MAPA -->
+    <iframe 
+      class="mapa"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15694.6873682101!2d-64.19487898423634!3d-31.450817753172002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a2831b63e7ed%3A0xd85c3c70b7e049c3!2sSal%C3%B3n%20Quill%C3%A9n%20Suy%C3%A1n!5e0!3m2!1ses-419!2sar!4v1682767859845!5m2!1ses-419!2sar" 
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="Mapa Salón Quillén Suyán"></iframe>
   </div>
 
-  <!-- AUDIO -->
-  <audio id="musica" loop>
-    <source src="/Img y mp3/Baile Inovidable.mp3" type="audio/mpeg" />
-    Tu navegador no soporta audio HTML5.
-  </audio>
-
-  <!-- ISLA FLOTANTE -->
+  <!-- ISLA DE MÚSICA -->
   <div class="isla-musica" id="islaMusica">
-    <div class="icono-musica">🎵</div>
+    <div class="icono-musica" id="iconoMusica">💿</div>
     <div class="detalle-musica">
-      <span class="titulo-cancion">Baile Inolvidable</span>
-      <button id="btnPlayPause">⏸️</button>
+      <span class="titulo-cancion" id="tituloCancion">Baile Inolvidable (Bad Bunny)</span>
+      <button id="btnPlayPause">▶️</button>
     </div>
   </div>
 
+  <audio id="audio" src="/Img y mp3/Baile Inovidable.mp3"></audio>
+
   <script>
-    const btnAbrir = document.getElementById('btnAbrir');
     const pantallaSobre = document.getElementById('pantallaSobre');
+    const btnAbrir = document.getElementById('btnAbrir');
     const invitacion = document.getElementById('invitacion');
-    const musica = document.getElementById('musica');
     const islaMusica = document.getElementById('islaMusica');
+    const audio = document.getElementById('audio');
     const btnPlayPause = document.getElementById('btnPlayPause');
 
+    // Abrir sobre y mostrar invitación
     btnAbrir.addEventListener('click', () => {
-      pantallaSobre.style.animation = 'abrirSobre 1s forwards';
-      pantallaSobre.addEventListener('animationend', () => {
-        pantallaSobre.style.display = 'none';
-        invitacion.style.display = 'flex';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        musica.play().catch(() => {});
-      }, { once: true });
+  pantallaSobre.style.animation = 'abrirSobre 1s forwards';
+  setTimeout(() => {
+    pantallaSobre.style.display = 'none';
+    invitacion.style.display = 'flex';
+    islaMusica.classList.add('expandida');
+    audio.play();
+    btnPlayPause.textContent = '⏸️';
+
+    // Después de 3 segundos, cerrar la isla automáticamente
+    setTimeout(() => {
+      islaMusica.classList.remove('expandida');
+    }, 3000);
+
+  }, 1000);
+});
+
+    // Expandir/contraer isla al hacer click
+    islaMusica.addEventListener('click', () => {
+      islaMusica.classList.toggle('expandida');
     });
 
-    // Isla flotante
-    islaMusica.addEventListener('mouseenter', () => {
-      islaMusica.classList.add('expandida');
-    });
-    islaMusica.addEventListener('mouseleave', () => {
-      islaMusica.classList.remove('expandida');
-    });
-    btnPlayPause.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (musica.paused) {
-        musica.play();
-        btnPlayPause.textContent = '⏸️';
+    // Efecto sombra del header al hacer scroll
+    const header = document.getElementById('headerAmparo');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 10) {
+        header.classList.add('scrolled');
       } else {
-        musica.pause();
-        btnPlayPause.textContent = '▶️';
+        header.classList.remove('scrolled');
       }
     });
   </script>
